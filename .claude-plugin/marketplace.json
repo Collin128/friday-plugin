@@ -8,7 +8,7 @@
     {
       "name": "friday",
       "displayName": "Friday",
-      "source": "./",
+      "source": "./plugins/friday",
       "description": "Daily Gmail + Calendar + Fireflies sweep that maintains your pipeline in a Google Sheet. Twelve composable skills.",
       "version": "0.1.0",
       "author": {
