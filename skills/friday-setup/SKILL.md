@@ -22,15 +22,43 @@ The user says any of:
 
 ## Steps
 
-### 1. Open the SHARED CRM template
+### 1. Get the user a Sheet to work with
 
-Send the user the Make-a-copy link for the SHARED CRM template:
+Two paths. Ask the user:
 
-> **TEMPLATE URL** — replace before publishing: `<SHARED_CRM_TEMPLATE_URL>`
->
-> Tell the user: "Click this link, then click Make a copy. Name your copy whatever you want — `Friday CRM` is a good default."
+> "Do you have a copy of the SHARED CRM template, or should we set one up from scratch?"
 
-Wait for the user to confirm they have created a copy and have the new Sheet URL.
+**Path A — they have a template URL.** The author of this plugin maintains a SHARED CRM template; the link is:
+
+> `<SHARED_CRM_TEMPLATE_URL>` *(placeholder — replace before any non-author install)*
+
+Tell the user: "Click this link, then click Make a copy. Name your copy whatever you want — `Friday CRM` is a good default." Wait for them to paste the new Sheet URL.
+
+**Path B — no template URL (first-time author dogfood, or template not yet shared).** Walk the user through creating a Sheet manually:
+
+1. Open https://sheets.google.com and create a new blank Sheet. Name it `Friday CRM`.
+2. Add six tabs named exactly: `MEET`, `DISCO`, `MANAGE`, `NURTURE`, `Triage`, `Activity Log`.
+3. For each of MEET / DISCO / MANAGE / NURTURE, paste this header row in row 1 (use the exact column names from [[friday-sheet]] § Pipeline tabs):
+
+   ```
+   Company | MEDDPICC Score | Opp Stage | Next Action | Next Action Date | Name | Notes | Metric / M | Economic Decision Maker / E | Decision Criteria / DC | Decision Process / DP | Paper Process / P | Identified Pain / I | Champion / CH | Competition / CP | SCORE
+   ```
+
+4. For `Triage`, paste this header row:
+
+   ```
+   discovered_at | evidence_link | company | name | signal_kind | suggested_pipeline | suggested_next_action | confidence | status | decided_at
+   ```
+
+5. For `Activity Log`, paste this header row:
+
+   ```
+   timestamp | tab | row_company | row_name | action_kind | summary | evidence_link | applied | reverted_at
+   ```
+
+6. Paste the URL of the new Sheet back to Friday.
+
+Either path ends with a Sheet URL captured. Validate it in step 2.
 
 ### 2. Capture the new Sheet URL
 
