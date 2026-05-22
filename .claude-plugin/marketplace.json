@@ -1,0 +1,24 @@
+{
+  "name": "collin128-friday",
+  "owner": {
+    "name": "Collin Stewart"
+  },
+  "description": "Friday — personal CRM tender for Claude Cowork.",
+  "plugins": [
+    {
+      "name": "friday",
+      "displayName": "Friday",
+      "source": "./",
+      "description": "Daily Gmail + Calendar + Fireflies sweep that maintains your pipeline in a Google Sheet. Twelve composable skills.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Collin Stewart"
+      },
+      "homepage": "https://github.com/Collin128/friday-plugin",
+      "repository": "https://github.com/Collin128/friday-plugin",
+      "license": "MIT",
+      "category": "sales",
+      "tags": ["crm", "follow-up", "sales", "gmail", "fireflies", "google-sheets", "meddpicc"]
+    }
+  ]
+}

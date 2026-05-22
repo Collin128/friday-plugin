@@ -44,29 +44,47 @@ USER'S MACHINE (Cowork on Claude Desktop)
 
 ## Install
 
-See [`docs/INSTALL.md`](docs/INSTALL.md) for the full walk-through with screenshots. Quick install:
+See [`docs/INSTALL.md`](docs/INSTALL.md) for the full walk-through with screenshots. Quick install — pick the path that matches where you're installing from.
 
-### Option 1 — install from the public GitHub repo
+### Claude Code (CLI) — install from the marketplace
 
-In Claude Desktop / Cowork's plugin install flow, point at:
+This repo doubles as its own marketplace via `.claude-plugin/marketplace.json`. Two commands:
+
+```shell
+/plugin marketplace add Collin128/friday-plugin
+/plugin install friday@collin128-friday
+```
+
+Then `/reload-plugins` (or restart) to activate. See the [Claude Code plugin-marketplaces docs](https://code.claude.com/docs/en/plugin-marketplaces) for marketplace mechanics.
+
+### Claude Cowork — install via the plugins panel
+
+In Claude Desktop's Cowork tab → **Customize** → **Browse plugins** → use the "add custom plugin" / "from URL" flow and point at:
 
 ```
 https://github.com/Collin128/friday-plugin
 ```
 
-Cowork will pull the manifest and skills. Restart Claude Desktop if prompted.
+Cowork will register the marketplace and let you install Friday. See the [Cowork plugins help article](https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork) for the current UI flow.
 
-### Option 2 — install from a local clone
+### Local development (edit SKILL.md files in place)
 
-Clone first, then point Cowork at the local path:
+Clone, add the marketplace by local path:
 
 ```bash
 git clone https://github.com/Collin128/friday-plugin.git ~/web/friday-plugin
 ```
 
-Then in Claude Desktop, use the plugin panel to install from `~/web/friday-plugin`. Useful if you want to edit the SKILL.md files locally.
+Then in Claude Code:
 
-### After install (either option)
+```shell
+/plugin marketplace add ~/web/friday-plugin
+/plugin install friday@collin128-friday
+```
+
+Edits to `skills/<name>/SKILL.md` show up after `/reload-plugins`.
+
+### After install (any path)
 
 1. Authorize Gmail, Google Calendar, Fireflies, and Google Drive in your Claude account (Settings → Connectors). Drive needs WRITE access.
 2. In Cowork, say `set up Friday`.
