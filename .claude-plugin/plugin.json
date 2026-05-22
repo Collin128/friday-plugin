@@ -1,0 +1,6 @@
+{
+  "name": "friday",
+  "version": "0.1.0",
+  "description": "Personal CRM tender for Claude Cowork — daily Gmail + Calendar + Fireflies sweep that maintains your pipeline in a Google Sheet.",
+  "author": "Collin Stewart"
+}
