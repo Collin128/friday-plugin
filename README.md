@@ -44,52 +44,69 @@ USER'S MACHINE (Cowork on Claude Desktop)
 
 ## Install
 
-See [`docs/INSTALL.md`](docs/INSTALL.md) for the full walk-through with screenshots. Quick install — pick the path that matches where you're installing from.
+This repo is structured as both a [Claude plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces) and the plugin itself. Pick the install path that matches where you're using it.
 
-### Claude Code (CLI) — install from the marketplace
+### Claude Cowork (Claude Desktop)
 
-This repo doubles as its own marketplace via `.claude-plugin/marketplace.json`. Two commands:
+1. In Claude Desktop, open the **Cowork** tab.
+2. Click **Customize** in the left sidebar.
+3. Under **Personal plugins**, click the **`+`** button → hover **Create plugin >** → click **Add marketplace**.
+4. In the dialog, paste:
+
+   ```
+   https://github.com/Collin128/friday-plugin
+   ```
+
+   (Or use the short form: `Collin128/friday-plugin`.)
+
+5. Click **Sync**. Cowork registers the marketplace as `collin128-friday`.
+6. Find the **friday** plugin under Personal plugins and install it.
+
+That's it for the plugin install. See [After install](#after-install) below.
+
+### Claude Code (CLI)
 
 ```shell
 /plugin marketplace add Collin128/friday-plugin
 /plugin install friday@collin128-friday
+/reload-plugins
 ```
-
-Then `/reload-plugins` (or restart) to activate. See the [Claude Code plugin-marketplaces docs](https://code.claude.com/docs/en/plugin-marketplaces) for marketplace mechanics.
-
-### Claude Cowork — install via the plugins panel
-
-In Claude Desktop's Cowork tab → **Customize** → **Browse plugins** → use the "add custom plugin" / "from URL" flow and point at:
-
-```
-https://github.com/Collin128/friday-plugin
-```
-
-Cowork will register the marketplace and let you install Friday. See the [Cowork plugins help article](https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork) for the current UI flow.
 
 ### Local development (edit SKILL.md files in place)
 
-Clone, add the marketplace by local path:
+Clone, then add the marketplace by local path:
 
 ```bash
 git clone https://github.com/Collin128/friday-plugin.git ~/web/friday-plugin
 ```
 
-Then in Claude Code:
+In Claude Code:
 
 ```shell
 /plugin marketplace add ~/web/friday-plugin
 /plugin install friday@collin128-friday
 ```
 
-Edits to `skills/<name>/SKILL.md` show up after `/reload-plugins`.
+Edits to `plugins/friday/skills/<name>/SKILL.md` show up after `/reload-plugins`.
 
-### After install (any path)
+### After install
 
-1. Authorize Gmail, Google Calendar, Fireflies, and Google Drive in your Claude account (Settings → Connectors). Drive needs WRITE access.
-2. In Cowork, say `set up Friday`.
-3. Follow the prompts: pick "have a template URL" or "set up from scratch" (Path B walks you through making the Sheet manually), paste your Sheet URL, wait for backfill, paste the two `/schedule` strings.
-4. Open Claude Desktop tomorrow morning. Your first briefing will be on the Scheduled tasks page.
+1. **Authorize the connectors.** In Claude Desktop, open **Customize → Connectors** and authorize Gmail, Google Calendar, Fireflies, and Google Drive. Drive needs WRITE access — Friday writes to your CRM Sheet.
+2. **Run the setup ritual.** In a Cowork chat, say:
+
+   > `set up Friday`
+
+   Friday will open the SHARED CRM template (or walk you through creating a Sheet from scratch), capture the new Sheet URL, run a 52-week backfill, and print two `/schedule` strings.
+3. **Paste the `/schedule` strings.** In Cowork's `/schedule` UI, paste each — one for the daily morning briefing, one for the weekly Friday ritual.
+4. **Open Claude Desktop tomorrow morning.** Your first daily briefing lands on the Scheduled tasks page at the time you set.
+
+Full step-by-step with screenshots: [`docs/INSTALL.md`](docs/INSTALL.md).
+
+### Troubleshooting install
+
+- **"Marketplace sync failed"** when adding the marketplace → confirm the URL is the public repo (`https://github.com/Collin128/friday-plugin` or `Collin128/friday-plugin`), not a deep link to a file. Cowork fetches `.claude-plugin/marketplace.json` from the repo root.
+- **Cowork doesn't show a `+` next to Personal plugins** → make sure you're on a recent Claude Desktop build; the plugins UI rolled out alongside Cowork.
+- **"Unknown skill: plugin"** if you typed `/plugin marketplace add ...` into Cowork's chat box → that's a Claude Code CLI command, not a Cowork chat command. Use the Customize panel flow above instead.
 
 ## The Sheet
 
