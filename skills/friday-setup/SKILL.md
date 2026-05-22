@@ -57,12 +57,7 @@ Tell the user:
 
 Then invoke [[friday-backfill]] with the captured Sheet URL.
 
-> **Note:** `friday-backfill` will not exist until Phase 6 lands. Until then, this step prints a one-line note: "Backfill not yet implemented — coming in a future plugin update." and skips to step 5.
-
-When `friday-backfill` completes, summarize:
-- Number of Triage rows added
-- Number of pipeline rows updated
-- Time elapsed
+When `friday-backfill` completes, it prints its own final summary (see [[friday-backfill]] § Output). The setup skill simply waits for that summary, then continues to step 5. If the user interrupts backfill (closes Claude Desktop, etc.), re-invoking `friday-setup` resumes from the last `backfill_week_complete` checkpoint — no data lost.
 
 ### 5. Print the two /schedule strings
 
