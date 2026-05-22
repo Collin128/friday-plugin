@@ -2,7 +2,9 @@
 
 > Reference doc, bundled with the `friday-funnels` skill. The user's canonical text for what each stage *means* and what evidence justifies a transition.
 >
-> **TBD before publishing:** this file is currently the spec's compressed stage taxonomy. The user's own Sales Guide content needs to be pasted in here verbatim — the framing language, the "what does Stage 4 actually look like in our deals" examples, the company-specific qualifier criteria. The `friday-funnels` skill defers to this document when its rules conflict.
+> **Canonical source:** https://docs.google.com/document/d/1n5Yu_-6ZimyimPbSjcoDb32UOkSk91hT1z2b5prmRas/edit (Collin's working Sales Guide). If a behavior in `friday-funnels` conflicts with the canonical source, the canonical source wins.
+>
+> **TBD:** the verbatim text from the canonical Google Doc is not yet pasted into this file (the doc is not publicly accessible — a WebFetch attempt returned 401). To complete the port, either: (a) publish the doc and re-fetch, or (b) paste the content sections below into the "TBD" placeholders in each stage block. Until then, the spec's compressed taxonomy below is the operational reference.
 
 ## MEET
 

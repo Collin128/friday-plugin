@@ -30,7 +30,7 @@ Two paths. Ask the user:
 
 **Path A — they have a template URL.** The author of this plugin maintains a SHARED CRM template; the link is:
 
-> `<SHARED_CRM_TEMPLATE_URL>` *(placeholder — replace before any non-author install)*
+> https://docs.google.com/spreadsheets/d/1DE0fGKgzP-zd4Z4kyPOsHHQPvd9q5HDlQIWoQF48a3I/copy
 
 Tell the user: "Click this link, then click Make a copy. Name your copy whatever you want — `Friday CRM` is a good default." Wait for them to paste the new Sheet URL.
 
