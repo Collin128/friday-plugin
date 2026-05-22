@@ -44,12 +44,34 @@ USER'S MACHINE (Cowork on Claude Desktop)
 
 ## Install
 
-See [`docs/INSTALL.md`](docs/INSTALL.md) for the full walk-through. Short version:
+See [`docs/INSTALL.md`](docs/INSTALL.md) for the full walk-through with screenshots. Quick install:
 
-1. Install this plugin in Claude Cowork.
-2. Authorize Gmail, Google Calendar, Fireflies, and Google Drive in your Claude account.
-3. Say "set up Friday" in Cowork. Follow the prompts.
-4. Paste the two `/schedule` strings the setup ritual prints. Done.
+### Option 1 — install from the public GitHub repo
+
+In Claude Desktop / Cowork's plugin install flow, point at:
+
+```
+https://github.com/Collin128/friday-plugin
+```
+
+Cowork will pull the manifest and skills. Restart Claude Desktop if prompted.
+
+### Option 2 — install from a local clone
+
+Clone first, then point Cowork at the local path:
+
+```bash
+git clone https://github.com/Collin128/friday-plugin.git ~/web/friday-plugin
+```
+
+Then in Claude Desktop, use the plugin panel to install from `~/web/friday-plugin`. Useful if you want to edit the SKILL.md files locally.
+
+### After install (either option)
+
+1. Authorize Gmail, Google Calendar, Fireflies, and Google Drive in your Claude account (Settings → Connectors). Drive needs WRITE access.
+2. In Cowork, say `set up Friday`.
+3. Follow the prompts: pick "have a template URL" or "set up from scratch" (Path B walks you through making the Sheet manually), paste your Sheet URL, wait for backfill, paste the two `/schedule` strings.
+4. Open Claude Desktop tomorrow morning. Your first briefing will be on the Scheduled tasks page.
 
 ## The Sheet
 
