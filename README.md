@@ -92,9 +92,11 @@ Edits to `plugins/friday/skills/<name>/SKILL.md` show up after `/reload-plugins`
 ### After install
 
 1. **Authorize the connectors.** In Claude Desktop, open **Customize → Connectors** and authorize Gmail, Google Calendar, Fireflies, and Google Drive. Drive needs WRITE access — Friday writes to your CRM Sheet.
-2. **Run the setup ritual.** In a Cowork chat, say:
+2. **Run the setup ritual.** In a Cowork chat, **type the natural-language phrase** (not a slash command):
 
-   > `set up Friday`
+   > set up Friday
+
+   ⚠️ **Don't use `/friday-setup` as a slash command.** Cowork's slash-invocation path is unreliable for plugin skills — it may stall silently or error with "No conversation found with session ID." Cowork triggers skills off the natural-language `description:` field, so saying the phrase plainly is the reliable path. Other triggers that work: "install Friday", "get Friday going".
 
    Friday will open the SHARED CRM template (or walk you through creating a Sheet from scratch), capture the new Sheet URL, run a 52-week backfill, and print two `/schedule` strings.
 3. **Paste the `/schedule` strings.** In Cowork's `/schedule` UI, paste each — one for the daily morning briefing, one for the weekly Friday ritual.
@@ -107,6 +109,7 @@ Full step-by-step with screenshots: [`docs/INSTALL.md`](docs/INSTALL.md).
 - **"Marketplace sync failed"** when adding the marketplace → confirm the URL is the public repo (`https://github.com/Collin128/friday-plugin` or `Collin128/friday-plugin`), not a deep link to a file. Cowork fetches `.claude-plugin/marketplace.json` from the repo root.
 - **Cowork doesn't show a `+` next to Personal plugins** → make sure you're on a recent Claude Desktop build; the plugins UI rolled out alongside Cowork.
 - **"Unknown skill: plugin"** if you typed `/plugin marketplace add ...` into Cowork's chat box → that's a Claude Code CLI command, not a Cowork chat command. Use the Customize panel flow above instead.
+- **"Something went wrong / No conversation found with session ID"** after typing `/friday-setup` (or any slash form of a Friday skill) → Cowork's slash-invocation path for plugin skills is flaky. Type the natural-language phrase instead: `set up Friday`, `run friday-sweep using sheet <URL>`, `review Friday`, etc. The skills are written so Cowork's description matcher picks them up off the natural phrase.
 
 ## The Sheet
 

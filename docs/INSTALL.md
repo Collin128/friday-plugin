@@ -35,9 +35,11 @@ If any of the four is missing, the corresponding signals are skipped. Friday wil
 
 > _Screenshot: `docs/screenshots/03-setup.png` — TBD._
 
-In Cowork, type:
+In Cowork, type the natural-language phrase (not a slash command):
 
 > set up Friday
+
+> **Don't type `/friday-setup`.** Cowork's slash invocation path is unreliable for plugin skills — it stalls silently or errors out. Cowork matches the skill's natural-language `description:` field, so plain phrasing is the reliable path. Other triggers that work: "install Friday", "get Friday going".
 
 Claude will invoke `friday-setup`. The ritual:
 
