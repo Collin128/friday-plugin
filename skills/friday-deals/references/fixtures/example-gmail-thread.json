@@ -1,0 +1,30 @@
+{
+  "_annotation": {
+    "purpose": "Sanitized Gmail thread payload showing a clean Strategy 1 (domain) match.",
+    "expected_match": {
+      "status": "matched",
+      "pipeline": "MEET",
+      "row_company": "Coalesce",
+      "row_name": "Priya Patel",
+      "match_strategy": "domain"
+    },
+    "assumed_pipeline_rows": [
+      {
+        "tab": "MEET",
+        "Company": "Coalesce",
+        "Name": "Priya Patel",
+        "Opp Stage": "2: Connected"
+      }
+    ],
+    "assumed_user_email": "you@yourcompany.com"
+  },
+  "kind": "gmail",
+  "evidence_link": "https://mail.google.com/mail/u/0/#inbox/THREAD_ID_PLACEHOLDER",
+  "subject": "Re: pricing tiers",
+  "direction": "inbound",
+  "participants": [
+    { "email": "you@yourcompany.com", "name": "You" },
+    { "email": "priya@coalesce.com", "name": "Priya Patel" }
+  ],
+  "body": "Thanks for sending the deck — I'm digging into the enterprise tier now. Quick q: does the per-seat price scale linearly past 500 seats, or is there a usage-based component I missed?"
+}
